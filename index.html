@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraCode by Praise</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            text-transform: capitalize;
+        }
+        body {
+            min-height: 100vh;
+            background-color: black;
+            color: white;
+        }
+        nav {
+            background-color: black;
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 0;
+        }
+        nav li {
+            height: 50px;
+        }
+        nav a {
+            height: 100%;
+            padding: 0 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: cyan;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #333;
+            color: cyan;
+        }
+        nav li:first-child {
+            margin-right: auto;
+            margin-left: 20px;
+            font-weight: 1000;
+        }
+    
+        section {
+            min-height: 100vh;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .ultracode-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            width: 100%;
+        }
+        .circle img {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid cyan;
+        }
+        p {
+            color: cyan;
+            max-width: 600px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        h2 {
+            color: cyan;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: left;
+            width: 100%;
+        }
+        #About p {
+            max-width: 800px;
+        }
+        :root {
+            --primary: black;
+            --primary-dark: black;
+            --dark: black;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --error: #ef4444;
+            --success: #10b981;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .tagline {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.25rem;
+            color: var(--light);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .error {
+            color: var(--error);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: block;
+            min-height: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary);
+            color: var(--light);
+            border: none;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(15, 23, 42, 0.3);
+            border-top-color: var(--dark);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .success-message i {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        .success-message h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .success-message p {
+            color: var(--gray);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            color: var(--gray);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+        /* Services Section */
+        .services-container {
+            background-color: var(--surface);
+            padding: 24px 16px;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .services-header {
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+
+        .services-header h2 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .services-header p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--background);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .service-card.active {
+            border-left: 4px solid var(--primary-color);
+            background-color: var(--user-bubble);
+        }
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .glow-container {
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Feedback form styles */
+        .feedback-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .feedback-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .rating-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rating-option input {
+            margin-bottom: 5px;
+        }
+
+        button[type="submit"] {
+            background: cyan;
+            color: black;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: #00b7b7;
+        }
+
+        .thank-you {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Dropdown styling */
+        #subject, #feedback-type {
+            background: rgba(15, 23, 42, 0.7);
+            color: white;
+            border: 1px solid cyan;
+        }
+        
+        #subject option, #feedback-type option {
+            background: black;
+            color: white;
+        }
+        
+    </style>
+</head> 
+<body>
+    <nav>
+        <ul>
+            <li><a href="#Ultracode">UltraCode</a></li>
+            <i class="uil uil-user-circle"></i><li><a href="#About">About Me</a></li>
+            <i class="uil uil-bars"></i><li><a href="#Services">Services</a></li>
+            <i class="uil uil-phone-alt"></i><li><a href="#Contact">Contact</a></li>
+            <i class="uil uil-comment-dots"></i><li><a href="#praise">Feedback</a></li>
+            <i class="uil uil-heart-medical"></i><li><a href="#donation">donation</a></li>
+        </ul>
+    </nav>
+
+    <section id="Ultracode">
+        <h2>UltraCode</h2>
+        <div class="ultracode-content">
+            <div class="circle">
+                <img src="praise.jpg" alt="Praise Tunde Akinloye">
+            </div>
+            <p>Ultracode empowers learners with coding skills combining expert instruction and real world projects to prepare students for careers in tech innovation and entrepreneurship across Africa and beyond.</p>
+        </div>
+     </section>
+
+    <section id="About">
+        <h2>About Me</h2>
+      <p> Praise Tunde Akinloye: The 9-Year-Old Coding Prodigy Behind UltraCode
+        At just nine, Praise Tunde Akinloye is already a tech visionary. 
+        Teaching himself to code through online tutorials and sheer determination, he's building
+        UltraCode —his dream company to create fun, educational games and apps for kids.
+        Praise works independently. The world better watch out—this young CEO is just getting started. I am
+      recruiting people for UltraCode, to help put Nigeria as the tech leader in 
+        Africa. Contact me and tell me your skills.</p>
+    <p>check out our donation</p>
+    </section>
+
+    <section id="Services">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="services-header">
+                <h2>AI Services</h2>
+                <p>Choose a specialized service to enhance your experience</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>Creative Writing</h3>
+                    <p>Generate stories, poems, and creative content</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Research Assistant</h3>
+                    <p>Get summaries and analysis on complex topics</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Code Generator</h3>
+                    <p>Write and debug code in multiple languages</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Language Translator</h3>
+                    <p>Translate between languages with context</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Contact">
+        <h2>Contact Me</h2>
+          <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">UC</span>
+                <h1>UltraCode</h1>
+            </div>
+            <p class="tagline">Get in touch with our team
+            <h3>number:07066765415 (whatsapp number also)</h3>
+            <h3>email:phaneros2014@gmail.com</h3>
+        </p>
+        </header>
+
+        <main class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your name" required>
+                    <span class="error" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                    <span class="error" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" required>
+                        <option value="" disabled selected>Select subject</option>
+                        <option value="Support">Support</option>
+                        <option value="Partnership">Partnership</option>
+                        <option value="Feedback">Feedback</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="error" id="subjectError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
+                    <span class="error" id="messageError"></span>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span id="btnText">Send Message</span>
+                    <div class="spinner" id="spinner"></div>
+                </button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <h3>Message Sent!</h3>
+                <p>We'll get back to you soon.</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2027 UltraCode. All rights reserved.</p>
+        </footer>
+    </div>
+    </section>
+
+    <section id="praise">
+    <div class="feedback-container">
+        <h1>We Value Your Feedback</h1>
+        
+        <div class="feedback-form">
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="name">Your Name (Optional)</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email (Optional - if you'd like a response)</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                
+                <div class="form-group">
+                    <label>How would you rate your experience?</label>
+                    <div class="rating">
+                        <div class="rating-option">
+                            <input type="radio" id="poor" name="rating" value="1">
+                            <label for="poor">1 (Poor)</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="fair" name="rating" value="2">
+                            <label for="fair">2 (Fair)</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="average" name="rating" value="3">
+                            <label for="average">3 (average)</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="good" name="rating" value="4">
+                            <label for="good">4 (good)</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="excellent" name="rating" value="5">
+                            <label for="excellent">5 (Excellent)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedback-type">Type of Feedback</label>
+                    <select id="feedback-type" name="feedback-type">
+                        <option value="general">General Feedback</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="suggestion">Feature Suggestion</option>
+                        <option value="complaint">Complaint</option>
+                        <option value="ads">Ads</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comments">Your Feedback</label>
+                    <textarea id="comments" name="comments" required></textarea>
+                </div>
+                
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+        
+        <div class="thank-you" id="thankYou">
+            <h2>Thank You for Your Feedback!</h2>
+            <p>We appreciate you taking the time to share your thoughts with us.</p>
+        </div>
+    </div>
+    </section>
+      <section id="donation">
+             <h3><p>we appreciate your donations.
+                your five thousand naira donation to this account number <h2>8034132687(opay) -helen ada ogbu</h2 >thank-you</p></h3>
+      </section>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show loading spinner
+            document.getElementById('spinner').style.display = 'block';
+            document.getElementById('btnText').textContent = 'Sending...';
+            
+            // Simulate form submission (in a real app, you would send to a server)
+            setTimeout(() => {
+                contactForm.style.display = 'none';
+                successMessage.style.display = 'block';
+            }, 1500);
+        });
+
+        // Feedback form submission
+        const feedbackForm = document.getElementById('feedbackForm');
+        const thankYou = document.getElementById('thankYou');
+        
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Hide form and show thank you message
+            feedbackForm.style.display = 'none';
+            thankYou.style.display = 'block';
+        });
+    </script>
+    <script src="node.js"></script>
+</body>
+</html>
